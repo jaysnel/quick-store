@@ -8,6 +8,7 @@
               <h4>{{ item.name }}</h4>
               <p>{{ item.price }}</p>
               <p>{{ item.condition }}</p>
+              <b-button variant="danger"  @click="addToCart(item)">Button</b-button>
           </div>
       </div>
   </div>
@@ -33,6 +34,29 @@ export default {
       addOne() {
       this.$store.state.count++
       console.log(this.$store.state.count)
+    },
+    addToCart(item) {
+      if(this.$store.state.shoppingCart.length === 0) {
+          item.count++;
+          this.$store.state.shoppingCart.push(item);
+      } else {
+          let found = false;
+
+          for(let i = 0; i < this.$store.state.shoppingCart.length; i++) {
+            if(item.name == this.$store.state.shoppingCart[i].name) {
+              this.$store.state.shoppingCart[i].count++
+              found = true;
+              break;
+            }
+          }
+          if(!found) {
+            item.count++;
+            this.$store.state.shoppingCart.push(item);
+          }
+      }
+    },
+    removeFromCart() {
+      
     }
   }
 }
