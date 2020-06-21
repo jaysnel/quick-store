@@ -11,11 +11,15 @@
               <b-button variant="danger"  @click="addToCart(item)">Button</b-button>
           </div>
       </div>
+
+
+          <ShoppingCart />
   </div>
 </template>
 
 <script>
 import storeInventory from '../data.js'
+import ShoppingCart from './ShoppingCart.vue'
 
 export default {
   name: 'HomePage',
@@ -23,6 +27,9 @@ export default {
       return {
           dataList: storeInventory
       }
+  },
+  components: {
+    ShoppingCart
   },
   props: {
     msg: String
@@ -41,7 +48,6 @@ export default {
           this.$store.state.shoppingCart.push(item);
       } else {
           let found = false;
-
           for(let i = 0; i < this.$store.state.shoppingCart.length; i++) {
             if(item.name == this.$store.state.shoppingCart[i].name) {
               this.$store.state.shoppingCart[i].count++
@@ -56,7 +62,7 @@ export default {
       }
     },
     removeFromCart() {
-      
+
     }
   }
 }
