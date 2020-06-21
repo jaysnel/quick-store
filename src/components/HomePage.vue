@@ -1,7 +1,7 @@
 <template>
   <div class="HomePage">
       <h1 class="text-center">Quick-Store</h1>
-      <button class="btn" v-on:click="addOne();listData()">Store State</button>
+      <b-button variant="success" class="btn" @click="addOne();listData()">Store State</b-button>
 
       <div class="store-front-items">
           <div v-for="item in dataList" :key="item.id">
@@ -41,9 +41,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-body {
-    background: #FFFBF5;
-}
 h3 {
   margin: 40px 0 0;
 }
