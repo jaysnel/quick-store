@@ -13,13 +13,13 @@
       </div>
 
 
-          <ShoppingCart />
+          <ViewShoppingCart />
   </div>
 </template>
 
 <script>
 import storeInventory from '../data.js'
-import ShoppingCart from './ShoppingCart.vue'
+import ViewShoppingCart from './ViewShoppingCart.vue'
 
 export default {
   name: 'HomePage',
@@ -29,7 +29,7 @@ export default {
       }
   },
   components: {
-    ShoppingCart
+    ViewShoppingCart
   },
   props: {
     msg: String

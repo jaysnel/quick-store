@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: 'ShoppingCart',
+    name: 'ViewShoppingCart',
     data() {
         return {
             cart: this.$store.state.shoppingCart,
