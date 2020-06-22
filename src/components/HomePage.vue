@@ -1,19 +1,17 @@
 <template>
   <div class="HomePage">
       <h1 class="text-center">Quick-Store</h1>
-      <b-button variant="success" class="btn" @click="addOne();listData()">Store State</b-button>
-
+      <ViewShoppingCart />
       <div class="store-front-items">
           <div v-for="item in dataList" :key="item.id">
+            <img v-bind:src="item.picture">
               <h4>{{ item.name }}</h4>
-              <p>{{ item.price }}</p>
+              <p>${{ item.price.toFixed(2) }}</p>
               <p>{{ item.condition }}</p>
-              <b-button variant="danger"  @click="addToCart(item)">Button</b-button>
+              <b-button variant="danger"  @click="addToCart(item)">Add To Cart</b-button>
           </div>
       </div>
 
-
-          <ViewShoppingCart />
   </div>
 </template>
 
@@ -25,7 +23,9 @@ export default {
   name: 'HomePage',
   data() {
       return {
-          dataList: storeInventory
+          dataList: storeInventory,
+          cart: this.$store.state.shoppingCart,
+          numberOfItemsInCart: this.$store.state.numberOfItemsInCart
       }
   },
   components: {
@@ -38,10 +38,6 @@ export default {
       listData() {
           console.log(this.dataList)
       },
-      addOne() {
-      this.$store.state.count++
-      console.log(this.$store.state.count)
-    },
     addToCart(item) {
       if(this.$store.state.shoppingCart.length === 0) {
           item.count++;
@@ -60,9 +56,14 @@ export default {
             this.$store.state.shoppingCart.push(item);
           }
       }
+      this.updateCartItemCount();
     },
-    removeFromCart() {
+    updateCartItemCount() {
+        this.$store.state.numberOfItemsInCart = 0; //reset amount to keep updated
 
+        this.cart.forEach(el => {
+            this.$store.state.numberOfItemsInCart += el.count;
+        });
     }
   }
 }
@@ -88,14 +89,19 @@ a {
 
 .store-front-items div {
     background: #D0734C;
+    border-radius: 3px;
+    margin: 5px 5px;
+}
+
+.store-front-items div img {
+  max-width: 100%;
+  width: 85px;
 }
 
 @media(min-width: 768px) {
     .store-front-items {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 2px;
-
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         width: 80%;
         margin: auto;
     }

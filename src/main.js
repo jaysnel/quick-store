@@ -14,7 +14,8 @@ Vue.config.productionTip = false
 const store = new Vuex.Store({
   state: {
     count: 0,
-    shoppingCart: []
+    shoppingCart: [],
+    numberOfItemsInCart: 0
   },
   mutations: {
     increment (state) {
