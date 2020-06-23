@@ -9,12 +9,18 @@
 </template>
 
 <style>
+body {
+  background: #EFDFD4;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #FFFBF5;
+  width: 85%;
+  margin: auto;
 }
 
 #nav {

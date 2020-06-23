@@ -72,6 +72,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.HomePage {
+  width: 80%;
+  margin: auto
+}
+
 h3 {
   margin: 40px 0 0;
 }
@@ -94,6 +99,34 @@ a {
     padding: 15px;
 }
 
+.store-front-items div:nth-child(1) {
+    background: #D0734C;
+}
+.store-front-items div:nth-child(2) {
+    background: #DB854E;
+}
+.store-front-items div:nth-child(3) {
+    background: #EABB59;
+}
+.store-front-items div:nth-child(4) {
+    background: #C65B41;
+}
+.store-front-items div:nth-child(5) {
+    background: #9BA25A;
+}
+.store-front-items div:nth-child(6) {
+    background: #B48A61;
+}
+.store-front-items div:nth-child(7) {
+    background: #CFC269;
+}
+.store-front-items div:nth-child(8) {
+    background: #B76BA0;
+}
+.store-front-items div:nth-child(9) {
+    background: #6EBACB;
+}
+
 .store-front-items div p {
   padding: 0;
   margin: 0;
@@ -107,7 +140,16 @@ a {
 @media(min-width: 768px) {
     .store-front-items {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media(max-width: 1100px) and (min-width: 768px) {
+    .store-front-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         width: 80%;
         margin: auto;
     }

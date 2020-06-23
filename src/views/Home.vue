@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .home {
+    background: #EFDFD4;
+  }
+</style>
