@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <HomePage />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/login">Login</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import HomePage from './components/HomePage.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HomePage
-  }
-}
-</script>
 
 <style>
 #app {
@@ -22,13 +15,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 90%;
-  margin: auto;
-  margin-top: 40px;
-  background: #FEF4E7;
-}
-body {
-  background: #E3C4AC !important;
 }
 
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-button v-b-modal.modal-1 @click="getTotalAmount()">View Cart ({{  this.$store.state.numberOfItemsInCart }})</b-button>
-        <b-modal id="modal-1" title="Shopping Cart" ok-only ok-title="Close">
+        <b-modal id="modal-1" title="Shopping Cart" cancel-title="Close" ok-title="Checkout" @ok="checkOut">
             <div id="ShoppingCartContainer">
                 <div>
                     <div v-for="item in cart" :key="item.id" class="shoppingCartItems">
@@ -28,6 +28,11 @@ export default {
         }
     },
     methods: {
+        checkOut() {
+            console.log(`You have ${this.$store.state.numberOfItemsInCart} items in your cart.`);
+
+            this.$router.push({ path: '/checkout' })
+        },
         getTotalAmount() {
             this.totalAmount = 0; //reset price to keep updated
             this.cart.forEach(el => {

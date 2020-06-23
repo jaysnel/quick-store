@@ -1,6 +1,6 @@
 <template>
   <div class="HomePage">
-      <h1 class="text-center">Quick-Store</h1>
+      <h1 class="text-center">Simple Market</h1>
       <ViewShoppingCart />
       <div class="store-front-items">
           <div v-for="item in dataList" :key="item.id">
@@ -91,6 +91,12 @@ a {
     background: #D0734C;
     border-radius: 3px;
     margin: 5px 5px;
+    padding: 15px;
+}
+
+.store-front-items div p {
+  padding: 0;
+  margin: 0;
 }
 
 .store-front-items div img {
